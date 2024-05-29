@@ -1,7 +1,6 @@
 <?php 
 namespace  App\Controllers;
 
-use App\Controllers\BaseController as Controller;
 use App\Models\UserModel as Insert;
 
 class AddController extends Insert {
@@ -35,26 +34,7 @@ class AddController extends Insert {
         $this->address        = $data['address'];
   
 
-        return $this->post($data);
-    }
-
-    public function answer(){
-        $type = 'POST';
-
-        $response = array(
-            'status'    => self::SUCCESS,
-            // 'method'    => parent::METHOD[$type],
-            'firstname'  => $this->firstname,
-            'middlename'  => $this->middlename,
-            'lastname'  => $this->lastname,
-            'age'  => $this->age,
-            'email'  => $this->email,
-            'contact'  => $this->contact,
-            'address'  => $this->address,
-
-  
-        );
-    
+        return $this->addUser($data);
     }
 
     public static function getErrorResponse(){

@@ -4,7 +4,7 @@
 declare(strict_types = 1);
 
 // // Load the File
-require dirname(__DIR__).'/../vendor/autoload.php';
+require dirname(__DIR__).'../vendor/autoload.php';
 
 // namespace alias/import
 use App\Controllers\AddController;

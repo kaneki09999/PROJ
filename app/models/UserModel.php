@@ -22,7 +22,7 @@ class UserModel extends BaseModel {
     }
 
     public function post() {
-        
+
     }
 
 }
