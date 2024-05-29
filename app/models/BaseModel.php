@@ -19,8 +19,8 @@ class BaseModel extends Database {
         $this->connect()->beginTransaction();
 
         $columns = implode(', ', array_keys($data));
+
         $placeholders = ':' . implode(', :', array_keys($data)); 
-        print_r($placeholders); exit;
         $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})"; 
        
         $stmt = $this->connect()->prepare($sql);
