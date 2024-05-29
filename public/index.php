@@ -1,21 +1,9 @@
-<?php
-
-use Config\Database;
-use App\Models\UserModel;
-
-require dirname(__DIR__).'/vendor/autoload.php';
-
-?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Sample Project</title>
 </head>
@@ -43,44 +31,44 @@ require dirname(__DIR__).'/vendor/autoload.php';
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="insertModalLabel">INSERT</h1>
+            <h1 class="modal-title fs-5 w-100 text-center" id="exampleModalLabel" style="color:green;">INSERT</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="http://localhost/OOP/app/requests/addrequest.php">
                     <div class="mb-3">
                         <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
+                        <input type="text" name="first_name" class="form-control" id="firstName" aria-describedby="firstNameHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="updateLastName" class="form-label">Middle Name</label>
-                        <input type="text" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
+                        <input type="text" name="middle_name" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp">
+                        <input type="text" name="last_name" class="form-control" id="lastName" aria-describedby="lastNameHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="age" class="form-label">Age</label>
-                        <input type="text" class="form-control" id="age" aria-describedby="ageHelp">
+                        <input type="text" name="age" class="form-control" id="age" aria-describedby="ageHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <input type="email"  name="email" class="form-control" id="email" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" aria-describedby="addressHelp">
+                        <input type="text" name="address" class="form-control" id="address" aria-describedby="addressHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="contact" class="form-label">Contact</label>
-                        <input type="text" class="form-control" id="contact" aria-describedby="contactHelp">
+                        <input type="text"  name="contact" class="form-control" id="contact" aria-describedby="contactHelp">
                     </div>
 
                 <div class="d-flex justify-content-center">
@@ -98,7 +86,7 @@ require dirname(__DIR__).'/vendor/autoload.php';
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="updateModalLabel">UPDATE</h1>
+                <h1 class="modal-title fs-5 w-100 text-center" id="updateModalLabel" style="color: #FF9B00;">UPDATE</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -106,37 +94,37 @@ require dirname(__DIR__).'/vendor/autoload.php';
                     
                     <div class="mb-3">
                         <label for="updateFirstName" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="updateFirstName" aria-describedby="firstNameHelp">
+                        <input type="text" name="first_name" class="form-control" id="updateFirstName" aria-describedby="firstNameHelp">
                     </div>
 
                     <div class="mb-3">
-                        <label for="updateLastName" class="form-label">Middle Name</label>
-                        <input type="text" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
+                        <label for="updateMiddleName" class="form-label">Middle Name</label>
+                        <input type="text" name="middle_name" class="form-control" id="updateLastName" aria-describedby="middleNameHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="updateLastName" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
+                        <input type="text" name="last_name" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="updateAge" class="form-label">Age</label>
-                        <input type="text" class="form-control" id="updateAge" aria-describedby="ageHelp">
+                        <input type="text"  name="age" class="form-control" id="updateAge" aria-describedby="ageHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="updateEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="updateEmail" aria-describedby="emailHelp">
+                        <input type="email"  name="email" class="form-control" id="updateEmail" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="updateAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="updateAddress" aria-describedby="addressHelp">
+                        <input type="text" name="address" class="form-control" id="updateAddress" aria-describedby="addressHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="updateContact" class="form-label">Contact</label>
-                        <input type="text" class="form-control" id="updateContact" aria-describedby="contactHelp">
+                        <input type="text"  name="contact" class="form-control" id="updateContact" aria-describedby="contactHelp">
                     </div>
 
                 <div class="d-flex justify-content-center">
@@ -154,7 +142,7 @@ require dirname(__DIR__).'/vendor/autoload.php';
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteModalLabel">DELETE</h1>
+                <h1 class="modal-title fs-5 w-100 text-center" id="deleteModalLabel" style="color: red;">DELETE</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -173,6 +161,8 @@ require dirname(__DIR__).'/vendor/autoload.php';
     </div>
 </div>
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>
