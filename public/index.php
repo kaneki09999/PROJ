@@ -35,7 +35,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="http://localhost/OOP/app/requests/addrequest.php">
+                <form action="http://localhost/PROJ/app/requests/addrequest.php" method="post">
                     <div class="mb-3">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" name="first_name" class="form-control" id="firstName" aria-describedby="firstNameHelp">
