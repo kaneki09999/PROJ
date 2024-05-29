@@ -39,29 +39,41 @@
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="updateLastName" class="form-label">Middle Name</label>
+                        <input type="text" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
+                    </div>
+
                     <div class="mb-3">
                         <label for="lastName" class="form-label">Last Name</label>
                         <input type="text" class="form-control" id="lastName" aria-describedby="lastNameHelp">
                     </div>
+
                     <div class="mb-3">
                         <label for="age" class="form-label">Age</label>
                         <input type="text" class="form-control" id="age" aria-describedby="ageHelp">
                     </div>
+
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
                     </div>
+
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
                         <input type="text" class="form-control" id="address" aria-describedby="addressHelp">
                     </div>
+
                     <div class="mb-3">
                         <label for="contact" class="form-label">Contact</label>
                         <input type="text" class="form-control" id="contact" aria-describedby="contactHelp">
                     </div>
+
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary" style="background-color: green; border: 3px solid black;">Submit</button>
                 </div>
+                
                 </form>
             </div>
         </div>
@@ -83,22 +95,32 @@
                         <label for="updateFirstName" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="updateFirstName" aria-describedby="firstNameHelp">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="updateLastName" class="form-label">Middle Name</label>
+                        <input type="text" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
+                    </div>
+
                     <div class="mb-3">
                         <label for="updateLastName" class="form-label">Last Name</label>
                         <input type="text" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
                     </div>
+
                     <div class="mb-3">
                         <label for="updateAge" class="form-label">Age</label>
                         <input type="text" class="form-control" id="updateAge" aria-describedby="ageHelp">
                     </div>
+
                     <div class="mb-3">
                         <label for="updateEmail" class="form-label">Email</label>
                         <input type="email" class="form-control" id="updateEmail" aria-describedby="emailHelp">
                     </div>
+
                     <div class="mb-3">
                         <label for="updateAddress" class="form-label">Address</label>
                         <input type="text" class="form-control" id="updateAddress" aria-describedby="addressHelp">
                     </div>
+
                     <div class="mb-3">
                         <label for="updateContact" class="form-label">Contact</label>
                         <input type="text" class="form-control" id="updateContact" aria-describedby="contactHelp">
@@ -107,6 +129,7 @@
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-warning" style="border: 3px solid black;">Update</button>
                 </div>
+
                 </form>
             </div>
         </div>
