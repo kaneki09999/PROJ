@@ -8,7 +8,8 @@ class UserModel extends BaseModel {
 
     }
 
-    public function addUser() {
+    public function addUser(array $data) {
+        return parent::insert($data, $this->table);
 
     }
 

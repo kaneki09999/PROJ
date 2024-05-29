@@ -1,3 +1,16 @@
+<?php
+
+use Config\Database;
+use App\Models\UserModel;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +47,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="http://localhost/OOP/app/requests/addrequest.php">
                     <div class="mb-3">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp">
@@ -73,7 +86,7 @@
                 <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary" style="background-color: green; border: 3px solid black;">Submit</button>
                 </div>
-                
+
                 </form>
             </div>
         </div>

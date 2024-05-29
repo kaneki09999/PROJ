@@ -45,6 +45,7 @@ class AddController extends Insert {
             'status'    => self::SUCCESS,
             // 'method'    => parent::METHOD[$type],
             'firstname'  => $this->firstname,
+            'middlename'  => $this->middlename,
             'lastname'  => $this->lastname,
             'age'  => $this->age,
             'email'  => $this->email,
@@ -55,4 +56,9 @@ class AddController extends Insert {
         );
     
     }
+
+    public static function getErrorResponse(){
+        return "Invalid Operations";
+    }
+
 }
