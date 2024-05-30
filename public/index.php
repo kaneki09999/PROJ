@@ -13,26 +13,13 @@ $stmt = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Sample Project</title>
 </head>
 <body style="background-color: gray;">
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertModal" style="background-color: green; border: 3px solid black; border-radius: 5px;">
-                INSERT
-            </button>
-            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateModal" style="background-color: orange; border: 3px solid black; border-radius: 5px;">
-                UPDATE
-            </button>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" style="background-color: red; border: 3px solid black; border-radius: 5px;">
-                DELETE
-            </button>
-        </div>
-    </div>
-</div>
+
 
 <!-- INSERT Modal -->
 
@@ -81,7 +68,7 @@ $stmt = $conn->query($sql);
                     </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary" style="background-color: green; border: 3px solid black;">Submit</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: green; border: px solid black;">Submit</button>
                 </div>
 
                 </form>
@@ -142,7 +129,7 @@ $stmt = $conn->query($sql);
                     </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-warning" style="border: 3px solid black;">Update</button>
+                    <button type="submit" class="btn btn-warning" style="border: 2px solid black;">Update</button>
                 </div>
 
                 </form>
@@ -180,6 +167,13 @@ $stmt = $conn->query($sql);
 <div class="container mt-4 p-4 rounded" style="background-color: #C3C3C3 ; border:3px solid black; box-shadow: 10px 10px 15px rgba(0, 0, 0, 10);">
 <div class="container text-center">
     <table class="table mx-auto table-secondary">
+
+   
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertModal" style="background-color: green; border: 2px solid black; border-radius: 5px; float: right; margin-bottom: 5px;">
+                INSERT
+            </button>
+        
+</div>
         <thead>
    
             <tr>
@@ -192,6 +186,7 @@ $stmt = $conn->query($sql);
                 <th scope="col">Address</th>
                 <th scope="col">Contact</th>
                 <th scope="col">Action</th>
+        
             </tr>
             
         <tbody>
@@ -210,6 +205,26 @@ $stmt = $conn->query($sql);
                     <td><?php echo $row['email']; ?></td>
                     <td><?php echo $row['address']; ?></td>
                     <td><?php echo $row['contact']; ?></td>
+                    <td>
+
+                <!--UPDATE BUTTON -->
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateModal" style="background-color: #FF8F00; border: 1px solid black; border-radius: 5px;">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                <!--DELETE BUTTON -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" style="background-color: #DA0707; border: 1px solid black; border-radius: 5px; margin-left: 5px;">
+                    <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+                    
+
+
+
+                    </td>
+
+
+                    
                 </tr>
                 <?php
             }
