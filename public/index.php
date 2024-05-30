@@ -18,6 +18,8 @@ $stmt = $conn->query($sql);
     <link rel="stylesheet" href="style.css">
     <title>Sample Project</title>
 </head>
+
+
 <body style="background-color: #DFDDDA;">
 
 
