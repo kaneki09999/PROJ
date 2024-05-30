@@ -99,8 +99,13 @@ $stmt = $conn->query($sql);
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" action="http://localhost/proj/app/requests/updaterequest.php">
                     
+                    <div class="mb-3">
+                        <label for="id" class="form-label">ID</label>
+                        <input type="text" name="id" class="form-control" id="id" aria-describedby="firstNameHelp">
+                    </div>
+
                     <div class="mb-3">
                         <label for="updateFirstName" class="form-label">First Name</label>
                         <input type="text" name="first_name" class="form-control" id="updateFirstName" aria-describedby="firstNameHelp">

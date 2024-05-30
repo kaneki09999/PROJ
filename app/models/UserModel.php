@@ -13,8 +13,8 @@ class UserModel extends BaseModel {
 
     }
 
-    public function patch() {
-
+    public function patch(array $data, $searchid) {
+        return parent::update($data, $searchid, $this->table);
     }
 
     public function remove() { 
