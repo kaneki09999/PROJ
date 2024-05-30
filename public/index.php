@@ -4,9 +4,7 @@ require dirname(__DIR__).'/vendor/autoload.php';
 
 $conn = ((new Database)->connect());
 $sql = "SELECT * FROM users";
-$stmt = $conn->prepare($sql);
-
-
+$stmt = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +16,7 @@ $stmt = $conn->prepare($sql);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Sample Project</title>
 </head>
-<body>
+<body style="background-color: gray;">
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -69,7 +67,7 @@ $stmt = $conn->prepare($sql);
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email"  name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
@@ -79,7 +77,7 @@ $stmt = $conn->prepare($sql);
 
                     <div class="mb-3">
                         <label for="contact" class="form-label">Contact</label>
-                        <input type="text"  name="contact" class="form-control" id="contact" aria-describedby="contactHelp">
+                        <input type="text" name="contact" class="form-control" id="contact" aria-describedby="contactHelp">
                     </div>
 
                 <div class="d-flex justify-content-center">
@@ -120,12 +118,12 @@ $stmt = $conn->prepare($sql);
 
                     <div class="mb-3">
                         <label for="updateAge" class="form-label">Age</label>
-                        <input type="text"  name="age" class="form-control" id="updateAge" aria-describedby="ageHelp">
+                        <input type="text" name="age" class="form-control" id="updateAge" aria-describedby="ageHelp">
                     </div>
 
                     <div class="mb-3">
                         <label for="updateEmail" class="form-label">Email</label>
-                        <input type="email"  name="email" class="form-control" id="updateEmail" aria-describedby="emailHelp">
+                        <input type="email" name="email" class="form-control" id="updateEmail" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
@@ -135,7 +133,7 @@ $stmt = $conn->prepare($sql);
 
                     <div class="mb-3">
                         <label for="updateContact" class="form-label">Contact</label>
-                        <input type="text"  name="contact" class="form-control" id="updateContact" aria-describedby="contactHelp">
+                        <input type="text" name="contact" class="form-control" id="updateContact" aria-describedby="contactHelp">
                     </div>
 
                 <div class="d-flex justify-content-center">
@@ -173,45 +171,53 @@ $stmt = $conn->prepare($sql);
 </div>
 
 <br>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Firstname</th>
-      <th scope="col">Middlename</th>
-      <th scope="col">Lastname</th>
-      <th scope="col">Age</th>
-      <th scope="col">Address</th>
-      <th scope="col">Contact</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php
-                    if($stmt->rowCount() > 0) {
-                        while($row = $stmt->fetch()){
-                    ?>
-    <tr>
-            <td><?php echo $row['id'];?></td>
-                    <td><?php echo $row['first_name'];?></td>
-                    <td><?php echo $row['middle_name'];?></td>
-                    <td><?php echo $row['last_name'];?></td>
-                    <td><?php echo $row['age'];?></td>
-                    <td><?php echo $row['email'];?></td>
-                    <td><?php echo $row['address'];?></td>
-                    <td><?php echo $row['contact'];?></td>
-            <td>
-    </tr>
-    <?php
-                        }
-                    }
-                    ?>
-  </tbody>
-</table>
+
+<div class="container mt-4 p-4 rounded" style="background-color: #C3C3C3 ; border:3px solid black; box-shadow: 10px 10px 15px rgba(0, 0, 0, 10);">
+<div class="container text-center">
+    <table class="table mx-auto table-secondary">
+        <thead>
+   
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Middlename</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">Age</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Action</th>
+            </tr>
+            
+        <tbody>
+           
+        </div>  
+        <?php
+        if ($stmt->rowCount() > 0) {
+            while ($row = $stmt->fetch()) {
+                ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['first_name']; ?></td>
+                    <td><?php echo $row['middle_name']; ?></td>
+                    <td><?php echo $row['last_name']; ?></td>
+                    <td><?php echo $row['age']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['address']; ?></td>
+                    <td><?php echo $row['contact']; ?></td>
+                </tr>
+                <?php
+            }
+        }
+        ?>
+        </tbody>
+    </table>
+</div>
+</div>
 
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- testing -->
 
 </body>
 </html>
