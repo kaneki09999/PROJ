@@ -130,7 +130,7 @@ $stmt = $conn->query($sql);
                     </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-warning" style="border: 2px solid black;">Update</button>
+                    <button type="submit" class="btn btn-warning primary zoom-in" style="border: 2px solid black;">Update</button>
                 </div>
 
                 </form>
@@ -155,7 +155,7 @@ $stmt = $conn->query($sql);
                     </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger primary zoom-in">Delete</button>
                 </div>
                 </form>
             </div>
@@ -180,14 +180,19 @@ $stmt = $conn->query($sql);
             <form action="index.php" method="GET" class="row g-3">
                 <div class="row g-1">
                     <div class="col-8 col-sm-5">
-                        <input type="text" name="search" class="form-control" placeholder="Search..." aria-describedby="button-addon2" style="margin-bottom: 15px;">
+                        <div class="input-group mb-3">
+                            <input type="text" name="search" class="form-control" placeholder="Search..." aria-label="Search" style="border: 1px solid black;">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-outline-secondary" style="background-color: #AFAFAF; border: 1px solid black;">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
                     </div>
-                <div class="col-4 col-sm-2">
-                        <button type="submit" value="Search" class="btn btn-outline-secondary primary zoom-in" id="button-addon2" style="background-color: #AFAFAF; margin-right: 250px;"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div> 
+                </form>
+</div> 
                 </div>
-            </form>
 
+            
         <thead>
    
             <tr>
@@ -223,7 +228,7 @@ $stmt = $conn->query($sql);
 
                 <!--UPDATE BUTTON -->
                 <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateModal" style="background-color: #FF8F00; border: 1px solid black; border-radius: 5px;">
+                    <button type="button" class="btn btn-warning primary zoom-in" data-bs-toggle="modal" data-bs-target="#updateModal" style="background-color: #FF8F00; border: 1px solid black; border-radius: 5px;">
                     <i class="fa-regular fa-pen-to-square"></i>
                     </button>
                 <!--DELETE BUTTON -->
@@ -280,7 +285,7 @@ $stmt = $conn->query($sql);
                                     </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-warning" style="border: 2px solid black;">Update</button>
+                                    <button type="submit" class="btn btn-warning primary zoom-in" style="border: 2px solid black;">Update</button>
                                 </div>
 
                                 </form>
