@@ -148,7 +148,7 @@ $stmt = $conn->query($sql);
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form method="post" action="http://localhost/proj/app/requests/deleterequest.php">
                     <div class="mb-3">
                         <label for="deleteId" class="form-label">Are you sure you want to delete this?</label>
                         <input type="hidden" class="form-control" id="deleteId" aria-describedby="deleteIdHelp">

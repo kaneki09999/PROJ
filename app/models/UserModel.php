@@ -17,8 +17,8 @@ class UserModel extends BaseModel {
         return parent::update($data, $searchid, $this->table);
     }
 
-    public function remove() { 
-
+    public function remove($id) { 
+        return parent::delete($id, $this->table);
     }
 
     public function post() {

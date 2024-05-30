@@ -11,7 +11,6 @@ class BaseModel extends Database {
     public function jsonResponse($params){
         header('Content-Type: application/json');             
         $response = json_encode($params, JSON_PRETTY_PRINT);   
-        
         return $response; 
     }
 
@@ -60,10 +59,14 @@ class BaseModel extends Database {
     
         $stmt = $this->connect()->prepare($sql);
         $result = $stmt->execute($placeholders);
-    
 
         return $result;
-
     }
 
+    protected function delete($id, $table = null){
+        $this->connect();
+        $sql = "DELETE FROM {$table} WHERE id = $id";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+    }
 }
