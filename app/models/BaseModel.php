@@ -47,4 +47,23 @@ class BaseModel extends Database {
         return $this->request;
     }
 
+    protected function update(array $data, $search_id, $table = null){
+        $setClause = '';
+        $placeholders = [];
+        foreach ($data as $column => $value) {
+            $setClause .= "{$column} = :{$column}, ";
+            $placeholders[":{$column}"] = $value;
+        }
+        $setClause = rtrim($setClause, ', ');  
+        $sql = "UPDATE {$table} SET {$setClause} WHERE id = :id";
+        $placeholders[':id'] = $search_id;
+    
+        $stmt = $this->connect()->prepare($sql);
+        $result = $stmt->execute($placeholders);
+    
+
+        return $result;
+
+    }
+
 }
