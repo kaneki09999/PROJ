@@ -63,10 +63,10 @@ class BaseModel extends Database {
         return $result;
     }
 
-    protected function delete($id, $table = null){
-        $this->connect();
+    public function delete($id, $table){
+        $conn = $this->connect();
         $sql = "DELETE FROM {$table} WHERE id = $id";
-        $stmt = $this->connect()->prepare($sql);
+        $stmt = $conn->prepare($sql);
         $stmt->execute();
     }
 }
