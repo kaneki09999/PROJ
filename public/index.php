@@ -1,3 +1,14 @@
+<?php
+use Config\Database;
+require dirname(__DIR__).'/vendor/autoload.php';
+
+$conn = ((new Database)->connect());
+$sql = "SELECT * FROM users";
+$stmt = $conn->prepare($sql);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,6 +171,43 @@
         </div>
     </div>
 </div>
+
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Firstname</th>
+      <th scope="col">Middlename</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Age</th>
+      <th scope="col">Address</th>
+      <th scope="col">Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+                    if($stmt->rowCount() > 0) {
+                        while($row = $stmt->fetch()){
+                    ?>
+    <tr>
+            <td><?php echo $row['id'];?></td>
+                    <td><?php echo $row['first_name'];?></td>
+                    <td><?php echo $row['middle_name'];?></td>
+                    <td><?php echo $row['last_name'];?></td>
+                    <td><?php echo $row['age'];?></td>
+                    <td><?php echo $row['email'];?></td>
+                    <td><?php echo $row['address'];?></td>
+                    <td><?php echo $row['contact'];?></td>
+            <td>
+    </tr>
+    <?php
+                        }
+                    }
+                    ?>
+  </tbody>
+</table>
+
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
