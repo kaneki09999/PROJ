@@ -28,43 +28,43 @@ $stmt = $conn->query($sql);
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h1 class="modal-title fs-5 w-100 text-center" id="exampleModalLabel" style="color:green;">INSERT</h1>
+            <h1 class="modal-title fs-5 w-100 text-center" id="exampleModalLabel" style="color:green;"><strong>INSERT</strong></h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="http://localhost/PROJ/app/requests/addrequest.php" method="post">
                     <div class="mb-3">
-                        <label for="firstName" class="form-label">First Name</label>
+                    <label for="firstName" class="form-label"><strong>First Name</strong></label>
                         <input type="text" name="first_name" class="form-control" id="firstName" aria-describedby="firstNameHelp">
                     </div>
 
                     <div class="mb-3">
-                        <label for="updateLastName" class="form-label">Middle Name</label>
+                        <label for="updateLastName" class="form-label"><strong>Middle Name</strong></label>
                         <input type="text" name="middle_name" class="form-control" id="updateLastName" aria-describedby="lastNameHelp">
                     </div>
 
                     <div class="mb-3">
-                        <label for="lastName" class="form-label">Last Name</label>
+                        <label for="lastName" class="form-label"><strong>Last Name</strong></label>
                         <input type="text" name="last_name" class="form-control" id="lastName" aria-describedby="lastNameHelp">
                     </div>
 
                     <div class="mb-3">
-                        <label for="age" class="form-label">Age</label>
+                        <label for="age" class="form-label"><strong>Age</strong></label>
                         <input type="text" name="age" class="form-control" id="age" aria-describedby="ageHelp">
                     </div>
 
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label"><strong>Email</strong></label>
                         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
                     </div>
 
                     <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
+                        <label for="address" class="form-label"><strong>Address</strong></label>
                         <input type="text" name="address" class="form-control" id="address" aria-describedby="addressHelp">
                     </div>
 
                     <div class="mb-3">
-                        <label for="contact" class="form-label">Contact</label>
+                        <label for="contact" class="form-label"><strong>Contact</strong></label>
                         <input type="text" name="contact" class="form-control" id="contact" aria-describedby="contactHelp">
                     </div>
 
@@ -157,7 +157,7 @@ $stmt = $conn->query($sql);
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5 w-100 text-center" id="updateModalLabel" style="color: #FF9B00;">UPDATE</h1>
+                                <h1 class="modal-title fs-5 w-100 text-center" id="updateModalLabel" style="color: #FF9B00;"><strong>UPDATE</strong></h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body" style="text-align:left;">
@@ -165,37 +165,37 @@ $stmt = $conn->query($sql);
                                     
                                         <input type="hidden" name="id" class="form-control" id="id" value="<?php echo $row['id']; ?>">
                                     <div class="mb-3">
-                                        <label for="updateFirstName" class="form-label">First Name</label>
+                                        <label for="updateFirstName" class="form-label"><strong>First Name</strong></label>
                                         <input type="text" name="first_name" class="form-control" id="updateFirstName" aria-describedby="firstNameHelp" value="<?php echo $row['first_name']; ?>">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="updateMiddleName" class="form-label">Middle Name</label>
+                                        <label for="updateMiddleName" class="form-label"><strong>Middle Name</strong></label>
                                         <input type="text" name="middle_name" class="form-control" id="updateLastName" aria-describedby="middleNameHelp" value="<?php echo $row['middle_name']; ?>">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="updateLastName" class="form-label">Last Name</label>
+                                        <label for="updateLastName" class="form-label"><strong>Last Name</strong></label>
                                         <input type="text" name="last_name" class="form-control" id="updateLastName" aria-describedby="lastNameHelp" value="<?php echo $row['last_name']; ?>">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="updateAge" class="form-label">Age</label>
+                                        <label for="updateAge" class="form-label"><strong>Age</strong></label>
                                         <input type="text" name="age" class="form-control" id="updateAge" aria-describedby="ageHelp" value="<?php echo $row['age']; ?>">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="updateEmail" class="form-label">Email</label>
+                                        <label for="updateEmail" class="form-label"><strong>Email</strong></label>
                                         <input type="email" name="email" class="form-control" id="updateEmail" aria-describedby="emailHelp" value="<?php echo $row['email']; ?>">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="updateAddress" class="form-label">Address</label>
+                                        <label for="updateAddress" class="form-label"><strong>Address</strong></label>
                                         <input type="text" name="address" class="form-control" id="updateAddress" aria-describedby="addressHelp" value="<?php echo $row['address']; ?>">
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="updateContact" class="form-label">Contact</label>
+                                        <label for="updateContact" class="form-label"><strong>Contact</strong></label>
                                         <input type="text" name="contact" class="form-control" id="updateContact" aria-describedby="contactHelp" value="<?php echo $row['contact']; ?>">
                                     </div>
 
@@ -214,7 +214,7 @@ $stmt = $conn->query($sql);
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5 w-100 text-center" id="deleteModalLabel" style="color: red;">DELETE</h1>
+                                <h1 class="modal-title fs-5 w-100 text-center" id="deleteModalLabel" style="color: red;"><strong>DELETE</strong></h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
