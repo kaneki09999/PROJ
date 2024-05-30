@@ -1,0 +1,8 @@
+.zoom-in {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Zoom out on hover */
+.zoom-in:hover {
+    transform: scale(1.10);
+}
