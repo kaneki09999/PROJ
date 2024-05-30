@@ -18,9 +18,7 @@ $stmt = $conn->query($sql);
     <link rel="stylesheet" href="style.css">
     <title>Sample Project</title>
 </head>
-
-
-<body style="background-color: #DFDDDA;">
+<body style="background-color: gray;">
 
 
 
@@ -132,7 +130,7 @@ $stmt = $conn->query($sql);
                     </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-warning primary zoom-in" style="border: 1px solid black;">Update</button>
+                    <button type="submit" class="btn btn-warning" style="border: 2px solid black;">Update</button>
                 </div>
 
                 </form>
@@ -157,7 +155,7 @@ $stmt = $conn->query($sql);
                     </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-danger primary zoom-in">Delete</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
                 </div>
                 </form>
             </div>
@@ -225,7 +223,7 @@ $stmt = $conn->query($sql);
 
                 <!--UPDATE BUTTON -->
                 <div class="d-flex justify-content-between">
-                    <button type="button" class="btn btn-warning primary zoom-in" data-bs-toggle="modal" data-bs-target="#updateModal" style="background-color: #FF8F00; border: 1px solid black; border-radius: 5px;">
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateModal" style="background-color: #FF8F00; border: 1px solid black; border-radius: 5px;">
                     <i class="fa-regular fa-pen-to-square"></i>
                     </button>
                 <!--DELETE BUTTON -->
@@ -233,8 +231,87 @@ $stmt = $conn->query($sql);
                     <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
-                    
 
+                <!-- UPDATE Modal -->
+                <div class="modal fade" id="update_<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 w-100 text-center" id="updateModalLabel" style="color: #FF9B00;">UPDATE</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="text-align:left;">
+                                <form method="post" action="http://localhost/proj/app/requests/updaterequest.php">
+                                    
+                                        <input type="hidden" name="id" class="form-control" id="id" value="<?php echo $row['id']; ?>">
+                                    <div class="mb-3">
+                                        <label for="updateFirstName" class="form-label">First Name</label>
+                                        <input type="text" name="first_name" class="form-control" id="updateFirstName" aria-describedby="firstNameHelp" value="<?php echo $row['first_name']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateMiddleName" class="form-label">Middle Name</label>
+                                        <input type="text" name="middle_name" class="form-control" id="updateLastName" aria-describedby="middleNameHelp" value="<?php echo $row['middle_name']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateLastName" class="form-label">Last Name</label>
+                                        <input type="text" name="last_name" class="form-control" id="updateLastName" aria-describedby="lastNameHelp" value="<?php echo $row['last_name']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateAge" class="form-label">Age</label>
+                                        <input type="text" name="age" class="form-control" id="updateAge" aria-describedby="ageHelp" value="<?php echo $row['age']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateEmail" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" id="updateEmail" aria-describedby="emailHelp" value="<?php echo $row['email']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateAddress" class="form-label">Address</label>
+                                        <input type="text" name="address" class="form-control" id="updateAddress" aria-describedby="addressHelp" value="<?php echo $row['address']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateContact" class="form-label">Contact</label>
+                                        <input type="text" name="contact" class="form-control" id="updateContact" aria-describedby="contactHelp" value="<?php echo $row['contact']; ?>">
+                                    </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-warning" style="border: 2px solid black;">Update</button>
+                                </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DELETE Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 w-100 text-center" id="deleteModalLabel" style="color: red;">DELETE</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="deleteId" class="form-label">Are you sure you want to delete this?</label>
+                                        <input type="hidden" class="form-control" id="deleteId" aria-describedby="deleteIdHelp">
+                                    </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
                     </td>
