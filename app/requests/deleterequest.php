@@ -10,8 +10,8 @@ $obj = new deleteController();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $id = $_POST['id'];
     try {
+        $id = $_POST['id'];
        $obj->operations($id); 
         header("location: http://localhost/PROJ/public/index.php");
     } catch (TypeError $e) {
