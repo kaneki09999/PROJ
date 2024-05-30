@@ -132,7 +132,7 @@ $stmt = $conn->query($sql);
                 ?>
                 <tr>
                     <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['first_name']; ?></td>
+                    <td><a href="" style="text-decoration: none;"><?php echo $row['first_name']; ?></a></td>
                     <td><?php echo $row['middle_name']; ?></td>
                     <td><?php echo $row['last_name']; ?></td>
                     <td><?php echo $row['age']; ?></td>
