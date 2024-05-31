@@ -1,5 +1,4 @@
 <?php
-// ExtraController.php
 namespace App\Controllers;
 
 
@@ -12,6 +11,5 @@ trait ExtraController {
     public function errorMessage(): string{
         return "Test Error Message";
     }
-
 
 }

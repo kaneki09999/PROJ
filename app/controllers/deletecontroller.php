@@ -8,7 +8,6 @@ class deleteController extends Insert {
 
     private array $data;    
 
-
     public function operations($id) {
         return $this->remove($id);
     }

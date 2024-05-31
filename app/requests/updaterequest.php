@@ -13,18 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
 
     try {
-
-        
         $param = [
-            'first_name'=> $_POST['first_name'],
-            'middle_name'=> $_POST['middle_name'],
-            'last_name'=> $_POST['last_name'],
-            'age'=> $_POST['age'], 
-            'email' => $_POST['email'], 
-            'address'=> $_POST['address'],    
-            'contact'=> $_POST['contact'],    
+            'first_name'    => $_POST['first_name'],
+            'middle_name'   => $_POST['middle_name'],
+            'last_name'     => $_POST['last_name'],
+            'age'           => $_POST['age'], 
+            'email'         => $_POST['email'], 
+            'address'       => $_POST['address'],    
+            'contact'       => $_POST['contact'],    
         ];
-
 
        $obj->operations($param, $id); 
         
@@ -33,8 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } catch (TypeError $e) {
         echo $obj::getErrorResponse() . " " . $e->getMessage();
     }
-
-    
 }
 
 

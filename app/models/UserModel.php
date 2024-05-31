@@ -10,7 +10,6 @@ class UserModel extends BaseModel {
 
     public function addUser(array $data) {
         return parent::insert($data, $this->table);
-
     }
 
     public function patch(array $data, $searchid) {
@@ -20,6 +19,5 @@ class UserModel extends BaseModel {
     public function remove($id) { 
         return parent::delete($id, $this->table);
     }
-
 
 }
