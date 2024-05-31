@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'contact'=> $_POST['contact'],    
         ];
 
-
        $obj->operations($param, $id); 
         
         header("location: http://localhost/PROJ/public/index.php");
@@ -31,8 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } catch (TypeError $e) {
         echo $obj::getErrorResponse() . " " . $e->getMessage();
     }
-
-    
 }
 
 

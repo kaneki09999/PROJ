@@ -9,7 +9,6 @@ use App\Controllers\deleteController;
 $obj = new deleteController();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
     try {
         $id = $_POST['id'];
        $obj->operations($id); 
