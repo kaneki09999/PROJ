@@ -92,7 +92,7 @@ $stmt = $conn->query($sql);
             </button>
                     
 
-           <!--SEARCH BAR-->
+           <!--SEARCH     BAR-->
             <form action="index.php" method="GET" class="row g-3">
                 <div class="row g-1">
                     <div class="col-8 col-sm-5">
