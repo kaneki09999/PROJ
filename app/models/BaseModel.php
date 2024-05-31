@@ -14,9 +14,7 @@ class BaseModel extends Database {
 
     protected function insert(array $data, $table = null){
         $this->connect()->beginTransaction();
-
         $columns = implode(', ', array_keys($data));
-
         $placeholders = ':' . implode(', :', array_keys($data)); 
         $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})"; 
        
@@ -26,21 +24,18 @@ class BaseModel extends Database {
             $stmt->bindParam(':'.$key, $data[$key]);     
         }
         $stmt->execute();
-      
         $lastInsertedId = $this->connect()->lastInsertId();
 
         $response = [
-            'status' => 'ok',
-            'lastInsertedId' => $lastInsertedId,
+            'status'            => 'ok',
+            'lastInsertedId'    => $lastInsertedId,
         ];
-
         return $this->jsonResponse($response);
     }
 
     public function parseRequest(){
         $data = file_get_contents('php://input');
         $this->request = json_decode($data, true);
-
         return $this->request;
     }
 
@@ -57,7 +52,6 @@ class BaseModel extends Database {
     
         $stmt = $this->connect()->prepare($sql);
         $result = $stmt->execute($placeholders);
-
         return $result;
     }
 
@@ -79,9 +73,7 @@ class BaseModel extends Database {
         $sth->bindParam(':search', $searchTerm, PDO::PARAM_STR);
 
         $sth->execute();
-
         $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
-
         return $rows;
     }
 }

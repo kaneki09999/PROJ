@@ -7,9 +7,9 @@ class AddController extends Insert {
 
     use extracontroller;
 
-    public  string $firstname;
+    public string $firstname;
     public string $middlename;
-    public  string $lastname;
+    public string $lastname;
     public int $age;
     public string $email;
     public string $contact;

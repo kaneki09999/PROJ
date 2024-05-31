@@ -10,7 +10,7 @@ class Database {
         'host'      => 'localhost',
         'username'  => 'root',
         'password'  => '', 
-        'database'    => 'objectdb'
+        'database'  => 'objectdb'
     ];
     public function connect(){  
         $con = 'mysql:host='.$this->credentials['host'].';dbname='.$this->credentials['database'];
