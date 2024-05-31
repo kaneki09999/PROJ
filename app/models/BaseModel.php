@@ -2,7 +2,7 @@
 namespace App\Models;
 
 use Config\Database;
-
+use PDO;
 class BaseModel extends Database {
     private $request;
 
@@ -69,4 +69,22 @@ class BaseModel extends Database {
         $stmt = $conn->prepare($sql);
         $stmt->execute();
     }
+
+    public function find($search, $table) {
+        $conn = $this->connect();
+
+        $sql = "SELECT * FROM {$table} WHERE first_name LIKE :search
+        OR last_name LIKE :search OR age LIKE :search OR middle_name LIKE :search";
+        $sth = $conn->prepare($sql);
+
+        $searchTerm = '%' . $search . '%';
+        $sth->bindParam(':search', $searchTerm, PDO::PARAM_STR);
+
+        $sth->execute();
+
+        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        return $rows;
+
+}
 }
