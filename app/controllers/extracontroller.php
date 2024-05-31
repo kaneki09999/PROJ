@@ -13,5 +13,4 @@ trait ExtraController {
         return "Test Error Message";
     }
 
-
 }

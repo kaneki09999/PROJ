@@ -13,8 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
 
     try {
-
-        
         $param = [
             'first_name'=> $_POST['first_name'],
             'middle_name'=> $_POST['middle_name'],

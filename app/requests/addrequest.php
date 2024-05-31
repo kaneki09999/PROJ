@@ -9,7 +9,6 @@ use App\Controllers\AddController;
 $obj = new AddController();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // new fixes
     try {
 
 

@@ -12,7 +12,6 @@ class Database {
         'password'  => '', 
         'database'    => 'objectdb'
     ];
-
     public function connect(){  
         $con = 'mysql:host='.$this->credentials['host'].';dbname='.$this->credentials['database'];
         try {

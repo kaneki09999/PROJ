@@ -16,10 +16,8 @@ class AddController extends Insert {
     public string $address;
     public $request;
     public $result;
-    
 
     private array  $data;
-
 
     const SUCCESS = 'success';
 
@@ -32,11 +30,8 @@ class AddController extends Insert {
         $this->email        = $data['email'];
         $this->contact        = $data['contact'];
         $this->address        = $data['address'];
-  
-
         return $this->addUser($data);
     }
-
     public static function getErrorResponse(){
         return "Invalid Operations";
     }

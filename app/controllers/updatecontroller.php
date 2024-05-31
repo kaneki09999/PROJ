@@ -16,10 +16,8 @@ class updateController extends Insert {
     public string $address;
     public $request;
     public $result;
-    
 
     private array  $data;
-
 
     const SUCCESS = 'success';
 

@@ -21,5 +21,4 @@ class UserModel extends BaseModel {
         return parent::delete($id, $this->table);
     }
 
-
 }

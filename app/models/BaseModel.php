@@ -6,8 +6,6 @@ use PDO;
 class BaseModel extends Database {
     private $request;
 
-    
-
     public function jsonResponse($params){
         header('Content-Type: application/json');             
         $response = json_encode($params, JSON_PRETTY_PRINT);   
@@ -85,6 +83,5 @@ class BaseModel extends Database {
         $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
 
         return $rows;
-
-}
+    }
 }
