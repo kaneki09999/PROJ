@@ -1,5 +1,6 @@
 <?php
 use Config\Database;
+use App\Models\UserModel;
 require dirname(__DIR__).'/vendor/autoload.php';
 
 $conn = ((new Database)->connect());
@@ -107,6 +108,8 @@ $stmt = $conn->query($sql);
 </div> 
                 </div>
 
+
+
             
         <thead>
    
@@ -127,7 +130,133 @@ $stmt = $conn->query($sql);
            
         </div>  
         <?php
+
+
         if ($stmt->rowCount() > 0) {
+            $obj = new UserModel();
+            if (isset($_GET['search'])) {
+                $search = $_GET['search'];
+                $result = $obj->search($search, 'users');
+                if ($result) {
+                    foreach ($result as $row) {
+                ?>
+
+<tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><a href="" style="text-decoration: none;"><?php echo $row['first_name']; ?></a></td>
+                    <td><?php echo $row['middle_name']; ?></td>
+                    <td><?php echo $row['last_name']; ?></td>
+                    <td><?php echo $row['age']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['address']; ?></td>
+                    <td><?php echo $row['contact']; ?></td>
+                    <td>
+
+                <!--UPDATE BUTTON -->
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-warning primary zoom-in" data-bs-toggle="modal" data-bs-target="#update_<?php echo $row['id']; ?>" style="background-color: #FF8F00; border: 1px solid black; border-radius: 5px;">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                <!--DELETE BUTTON -->
+                    <button type="button" class="btn btn-danger primary zoom-in" data-bs-toggle="modal" data-bs-target="#delete_<?php echo $row['id']; ?>" style="background-color: #DA0707; border: 1px solid black; border-radius: 5px; margin-left: 5px;">
+                    <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+
+                <!-- UPDATE Modal -->
+                <div class="modal fade" id="update_<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 w-100 text-center" id="updateModalLabel" style="color: #FF9B00;"><strong>UPDATE</strong></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="text-align:left;">
+                                <form method="post" action="http://localhost/proj/app/requests/updaterequest.php">
+                                    
+                                        <input type="hidden" name="id" class="form-control" id="id" value="<?php echo $row['id']; ?>">
+                                    <div class="mb-3">
+                                        <label for="updateFirstName" class="form-label"><strong>First Name</strong></label>
+                                        <input type="text" name="first_name" class="form-control" id="updateFirstName" aria-describedby="firstNameHelp" value="<?php echo $row['first_name']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateMiddleName" class="form-label"><strong>Middle Name</strong></label>
+                                        <input type="text" name="middle_name" class="form-control" id="updateLastName" aria-describedby="middleNameHelp" value="<?php echo $row['middle_name']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateLastName" class="form-label"><strong>Last Name</strong></label>
+                                        <input type="text" name="last_name" class="form-control" id="updateLastName" aria-describedby="lastNameHelp" value="<?php echo $row['last_name']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateAge" class="form-label"><strong>Age</strong></label>
+                                        <input type="text" name="age" class="form-control" id="updateAge" aria-describedby="ageHelp" value="<?php echo $row['age']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateEmail" class="form-label"><strong>Email</strong></label>
+                                        <input type="email" name="email" class="form-control" id="updateEmail" aria-describedby="emailHelp" value="<?php echo $row['email']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateAddress" class="form-label"><strong>Address</strong></label>
+                                        <input type="text" name="address" class="form-control" id="updateAddress" aria-describedby="addressHelp" value="<?php echo $row['address']; ?>">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="updateContact" class="form-label"><strong>Contact</strong></label>
+                                        <input type="text" name="contact" class="form-control" id="updateContact" aria-describedby="contactHelp" value="<?php echo $row['contact']; ?>">
+                                    </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-warning primary zoom-in" style="border: 2px solid black;">Update</button>
+                                </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DELETE Modal -->
+                <div class="modal fade" id="delete_<?php echo $row['id']; ?>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5 w-100 text-center" id="deleteModalLabel" style="color: red;"><strong>DELETE</strong></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="http://localhost/proj/app/requests/deleterequest.php">
+                                    <div class="mb-3">
+                                        <label for="id" class="form-label">Are you sure you want to delete this?</label>
+                                        <input type="hidden" class="form-control" name="id" id="id" value="<?php echo $row['id']; ?>">
+                                    </div>
+
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                    </td>
+
+
+                    
+                </tr>
+                        
+                <?php
+                    }
+                }
+            
+
+            } else {
             while ($row = $stmt->fetch()) {
                 ?>
                 <tr>
@@ -242,6 +371,7 @@ $stmt = $conn->query($sql);
                 <?php
             }
         }
+    }
         ?>
         </tbody>
     </table>

@@ -4,8 +4,8 @@ namespace App\Models;
 class UserModel extends BaseModel {
     private string $table = "users";
     
-    public function search() {
-
+    public function search($search) {
+        return parent::find($search, $this->table);        
     }
 
     public function addUser(array $data) {
@@ -21,8 +21,5 @@ class UserModel extends BaseModel {
         return parent::delete($id, $this->table);
     }
 
-    public function post() {
-
-    }
 
 }
